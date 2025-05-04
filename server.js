@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const cors=require('cors');
-app.use(cors());
+app.use(cors({origin:["https://dev-courses12.netlify.app","http://localhost:5173"]}));
 const port=6060;
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
