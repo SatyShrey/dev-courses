@@ -46,24 +46,18 @@ app.post('/login',(req,res)=>{
         })
     })
 });
-//ui videos
-app.get('/uivideos',(req,res)=>{
+
+//videos
+app.get('/contents',(req,res)=>{
     mongoClient.connect(conStr).then((clientObject)=>{
         const db=clientObject.db('video-library');
-        db.collection('ui-videos').find({}).toArray().then(videos=>{
-            res.send(videos)
+        db.collection('videos').find({}).toArray().then(data=>{
+            res.send(data)
         })
     })
 });
-//ui videos
-app.get('/javavideos',(req,res)=>{
-    mongoClient.connect(conStr).then((clientObject)=>{
-        const db=clientObject.db('video-library');
-        db.collection('java-videos').find({}).toArray().then(videos=>{
-            res.send(videos)
-        })
-    })
-});
+
+
 //....................server at port 6060....................
 app.listen(port);
 console.log('http://localhost:'+port);
